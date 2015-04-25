@@ -1,0 +1,18 @@
+<%#<h2 class= "heading">Mood Food</h2>
+<div class="caption">
+	<span>
+		<p>the mood based search engine</p>
+	</span>
+</div>%>
+
+
+<% if user_signed_in? %>
+	<h2 class="heading">Adios <%= current_user.first_name %> !!!</h2>
+	<div class="fb_button">
+	    <%= link_to "Lets get started",  '/home/getstarted' %>
+	</div>	
+<% else %>
+	<div class="fb_button" id="main_page_fb">
+	    <%= link_to "Join us with facebook",  '/users/auth/facebook' %>
+	</div>		
+<% end %>

@@ -1,0 +1,30 @@
+<table border=1>
+		<thead>
+		<tr>
+			<th>Name</th>
+			<th>Profile</th>
+			<th>Profile Pic</th>
+			<th>Email</th>
+			<th>Gender</th>
+			<th>Locale</th>
+			<th>Timezone</th>
+		</tr>
+	</thead>
+    <tbody>
+
+
+<% @users.each do |user| %>
+	    	<tr>
+    		<td><%= user.name %></td>
+    		<td><%= link_to user.fb_link, user.fb_link %></td>
+    		<td><%= image_tag user.image %></td>
+    		<td><%= user.email %></td>
+    		<td><%= user.gender %></td>
+    		<td><%= user.locale %></td>
+    		<td><%= user.timezone %></td>
+    	</tr>
+	
+<% end %>
+
+</tbody>
+    <table>
