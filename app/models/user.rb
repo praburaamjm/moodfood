@@ -1,9 +1,25 @@
-class User < ActiveRecord::Base
+class User 
+	include Mongoid::Document
+	include Mongoid::Timestamps
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
 	:omniauthable, :omniauth_providers => [:facebook]
+
+  field :provider, :type => String
+  field :uid, :type => String
+  field :email, :type => String
+  field :name, :type => String
+  field :image, :type => String
+  field :password, :type => String
+  field :first_name, :type => String
+  field :last_name, :type => String
+  field :fb_link, :type => String
+  field :gender, :type => String
+  field :locale, :type => String
+  field :timezone, :type => String
+  field :location, :type => String
 
   def self.from_omniauth(auth)
 	where(provider: auth.provider, uid: auth.uid).first_or_create do |user|

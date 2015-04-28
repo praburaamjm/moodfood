@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :restaurants
+
   get 'home/index'
   get 'home/getstarted' => 'home#getstarted'
   get 'home/allusers' => 'home#allusers'
