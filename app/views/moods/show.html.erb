@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @mood.name %>
+</p>
+
+<p>
+  <strong>Desc:</strong>
+  <%= @mood.desc %>
+</p>
+
+<p>
+  <strong>Image url:</strong>
+  <%= image_tag @mood.image_url, {height:200} %>
+</p>
+
+<% if @mood.submoods.size > 0 %>
+	<h2>Sub Moods</h2>
+	<% for submood in @mood.submoods%>
+		<h3><%= submood.name %></h3>
+		<p><%= submood.desc %></p>
+	<% end %>
+<% end %>
+
+<h2>New Sub Mood</h2>
+
+<%= form_for [@mood, Submood.new] do |f|%>
+	<p><%= f.label :name%> <%= f.text_field :name %></p>
+	<p><%= f.label :desc%> <%= f.text_field :desc %></p>
+	<p><%= f.label :image_url%> <%= f.text_field :image_url %></p>
+	<p><%= f.submit %></p>
+<% end %>
+
+<%= link_to 'Edit', edit_mood_path(@mood) %> |
+<%= link_to 'Back', moods_path %>

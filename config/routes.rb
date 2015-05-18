@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :moods do
+    resources :submoods
+  end
+
   resources :restaurants
 
   get 'home/index'

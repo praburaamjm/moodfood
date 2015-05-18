@@ -1,7 +1,7 @@
-class Restaurant
+class Submood
   include Mongoid::Document
   field :name, type: String
-  field :content, type: String
+  field :desc, type: String
   field :image_url, type: String
-  field :location, type: String
+  embedded_in :mood, :inverse_of => :submoods
 end
