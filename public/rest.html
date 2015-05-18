@@ -1,0 +1,19 @@
+<html>
+	<head>
+		<title></title>
+	</head>
+	<body>
+		<div ng-app="myApp" ng-controller="RestaurantCtrl">
+			<div ng-repeat="rest in restaurants">
+				<h2>{{rest.name}}</h2>
+				<p>{{rest.location}}</p>
+				<img ng-src="{{rest.image_url}}">
+				<br/>
+				<span>{{rest.content}}</span>
+			</div>
+		</div>
+		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+		<script src="myApp.js"></script>
+		<script src="RestaurantCtrl.js"></script>
+	</body>
+</html>
